@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Secure Password Generator</h1>
+    <p class="intro">Passwords are created in your browser using the Web Crypto API. Nothing is sent or stored.</p>
+
+    <section class="output" aria-live="polite">
+      <output id="password" class="password" tabindex="0">&nbsp;</output>
+      <div class="output-actions">
+        <button id="copyBtn" type="button" class="btn secondary">Copy</button>
+        <button id="generateBtn" type="button" class="btn primary">Generate new</button>
+      </div>
+    </section>
+
+    <section class="strength" aria-label="Password strength">
+      <div class="meter"><div id="meterFill" class="meter-fill"></div></div>
+      <p><span id="strengthLabel">–</span> <span id="entropyText" class="muted"></span></p>
+    </section>
+
+    <section class="options">
+      <label class="length-row" for="length">
+        Length: <strong id="lengthValue">16</strong>
+      </label>
+      <input type="range" id="length" min="8" max="64" value="16">
+
+      <fieldset>
+        <legend>Include</legend>
+        <label><input type="checkbox" id="upper" checked> Uppercase (A–Z)</label>
+        <label><input type="checkbox" id="lower" checked> Lowercase (a–z)</label>
+        <label><input type="checkbox" id="numbers" checked> Numbers (0–9)</label>
+        <label><input type="checkbox" id="symbols" checked> Symbols (!@#$…)</label>
+        <label><input type="checkbox" id="ambiguous"> Exclude look-alike characters (O, 0, l, 1, I)</label>
+      </fieldset>
+      <p id="error" class="error" role="alert" hidden>Select at least one character type.</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
